@@ -1,1 +1,25 @@
-theme: jekyll-theme-slate
+# Site settings
+name:  汪凯的博客
+email: wk343321@126.com
+author: kai.wang
+url: http://www.hifreud.com
+resume_site: http://www.hifreud.com/Resume.io/
+github: https://github.com/kaycool
+github_username: kai.w
+baseurl: ""
+description: 一个有着梦想的咸鱼，企图晒着太阳翻着肚皮的咸鱼！
+meta_description: 勿忘初心
+motto: It's our wits that make us men.
+banner: 学而不思则罔，思而不学则殆。
+
+#permalink: /:categories/:year/:month/:day/:title/
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+
+# Build settings
+markdown: kramdown
+
+baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
+

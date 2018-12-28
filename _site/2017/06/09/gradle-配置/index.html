@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>android gradle加载配置文件参数 - 汪凯的博客</title>
+
+	<link rel="shortcut icon" href="/styles/images/favicon.jpg">
+	<link rel="icon" href="/styles/images/favicon.jpg">
+
+	<link rel="stylesheet" href="/styles/css/index.css">
+	<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/styles/css/syntax.css">
+	<link rel="canonical" href="/2017/06/09/gradle-%E9%85%8D%E7%BD%AE/">
+	<link rel="alternate" type="application/rss+xml" title="汪凯的博客" href="/feed.xml">
+	
+	<meta name="keywords" content="android gradle加载配置文件参数, 汪凯的博客, 康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休">
+	<meta name="description" content="康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休">
+
+	<script src="/styles/js/jquery.min.js"></script>
+	<!--[if lt IE 9]>
+    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	<![endif]-->
+  	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?94be4b0f9fc5d94cc0d0415ea6761ae9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+  	<style type="text/css">
+	  	.docs-content{
+	  		margin-bottom: 10px;
+	  	}
+  	</style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <img src="/styles/images/logo.jpg">
+      </a>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/categories/">大类分解</a>
+        </li>
+        <li>
+          <a href="/tag">小类内聚</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+            <a><span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">关于<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a rel="nofollow" target="_blank" href="https://github.com/kaycool">Github</a></li>
+            <li><a rel="nofollow" target="_blank" href="http://www.hifreud.com/Resume.io/">关于作者</a></li>
+            <li><a rel="nofollow" href="/books">我的书单</a></li>
+            <li><a rel="nofollow" href="http://www.hifreud.com/domains/">域名管理</a></li>
+            <li><a rel="nofollow" href="/reference">推荐博客</a></li>
+            <li><a href="/feed.xml">RSS订阅</a></li>
+            <li class="divider"></li>
+            <li><a rel="nofollow" target="_blank" href="https://github.com/luoyan35714/LessOrMore.git">本项目</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <div class="docs-header" id="content">
+  <div class="container">
+  	
+  		<!--
+		    <h1>android gradle加载配置文件参数</h1>
+		    <p>Post on Jun 09, 2017 by <a href="/about">kai.wang</a></p>
+		-->
+		    <h1>It's our wits that make us men.</h1>
+    
+  </div>
+</div>
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/categories/#gradle-ref">gradle</a>	/
+    	<a href="/tag/#gradle配置-ref">gradle配置</a>
+    
+  </div>
+</div>
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebar hidden-print" role="complementary">
+        <div id="navigation">
+  <h1>目录</h1>
+  <ul class="nav sidenav">
+  </ul>
+  <div style="height: 200px;width: 200px;">
+    <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"> 
+    </script>
+  </div>
+</div>
+
+ 
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+            <header class="post-header">
+              <h1 class="post-title">android gradle加载配置文件参数</h1>
+              <!--
+                <p class="post-meta">Jun 9, 2017</p>
+              -->
+              <div class="meta">Posted on <span class="postdate">Jun 09, 2017</span> By <a target="_blank" href="http://localhost:4000">kai.wang</a></div>
+              <br />
+            </header>
+            <article class="post-content">
+              
+<p>此文只是简单的通过配置变量的方式实现配置信息之间的切换，除去了频繁更改地址、开关、AppKey等其它的配置信息。</p>
+
+<p>本篇文章简单的使用了gradle的生命周期，有兴趣的童鞋可以自行百度了解一下。</p>
+
+<p>一般android studio刚创建的project的setting.gradle文件只包括一行：</p>
+
+<p>这一行的意思是构建mutiProject，按照正常的逻辑来说，其实android studio创建的每个module都算是一个单独的Project，而gradle通过构建此文件，将这些项目统一构建为mutiProject。</p>
+
+<p>gradle的构建过程简单理解如下所示:</p>
+
+<p>setting.gradle文件只有一份，这也就意味着整个mutiProject的gradle对象只有一份，它可以在任何project的gradle文件当中获取到这个对象。</p>
+
+<p>build.gradle文件有多份，每个module下存在于单个build.gradle文件，这就意味着，每个module都具备单独的project对象，这就意味着每个module都是一个单独的project。</p>
+
+<p>setting.gradle文件对应着gradle对象的初始化，那一般的初始化操作可以在此gradle脚本文件当中运行，但不要原始生成的include标签抹去，这是gradle构建mutiProject关键所在。</p>
+
+<p>首先，我在项目当中配置了debug.properties以及release.properties,这两个文件：</p>
+
+<p>第二步，在gradle.properties文件当中定义一个boolean值IS_RELEASE_MODE，这个变量就是加载配置了debug和release两个版本的配置文件的开关，如果有多种配置信息的，请改用字符串定义变量。，true表示Release参数，false代表debug参数。</p>
+
+<p>注：此处不得不说一下，gradle.properties文件当中的属性，我暂且这样理解为，在setting.gradle文件初始化gradle对象的时候，这个文件当中的属性已经默认加载到这个gradle对象当中，所以这个文件当中定义的属性是可以直接调用。</p>
+
+<p>第三步，setting.gradle当中读取文件当中定义属性代码展示如下（请配合参考groovy语言，$符是脚本语言的通用处理符号）</p>
+
+<p>同时，如果想后期读取自己定义的properties文件，这时候就需要用来gradle对象的扩展属性，对于gradle的扩展属性是通过gradle.ext标识符来完成的，特别声明，gradle.ext.属性名只需要在第一次赋值的时候需要带上ext标签，在后面的过程可以直接gradle.属性名进行任意的更改和取值。</p>
+
+<p>调用读取配置文件的方法</p>
+
+<p>基本参数配置完毕，可以通过gradle指令（gradlew clean指令就可观察对应扩展属性的值）在IS_RELEASE_MODE=true的情况下，输出如下所示。</p>
+
+<p>如果诸位童鞋觉得这个指令等待时间过长，那就自定义一个task，运行指令如上图所示，task的代码块是定义在project 类当中，所以只能在build.gradle文件当中进行配置：</p>
+
+<p>以上gradle的ext扩展属性对应配置脚本信息已经完毕。而这里需要解释的是上文当中有两种读取配置文件属性的处理方式，下文会具体指出其中需要注意的地方。</p>
+
+<p>第四步，在依赖的最顶层的libray 当中的build.gradle中做如下配置，为什么说要在最顶层的libray当中做这个配置，这是由于每个project（也就是as当中的module）都会在build当中生成对应自己build.gradle当中配置的BuildConfig.java类，所以，把这些配置信息放到最顶层的库，是为了其它依赖者也能够公用这个库的BuildConfig.java类。具体配置如下：</p>
+
+<p>gradle编译完毕之后会在当前build.gradle对应的project的build目录下生成BuildConfig类：</p>
+
+<p>同时，在gradle.properties当中将IS_RELEASE_MODE=false，BuildConfig编译完毕之后就能完成debug.properties文件属性值的切换。</p>
+
+<p>到了这个地方，按照以上步骤走，基本上可以解决多个版本配置信息之间的切换了。但上面提到的两种属性处理方式，在这里，我就通过未定义到BuildConfig的TEST7 属性来说明具体原因，这个点具体如下所示，如果我将TEST5采用非字符串的处理方式，BuildConfig如下所示：</p>
+
+<p>这就导致BuildConfig.java文件默认报错，我想大家还有一种比较简单的处理方式，那就是在配置文件当中直接对需要加在字符串的直接加上字符串就行了，我为了统一性，采用代码控制了这个问题，为了配置文件的属性的统一性。</p>
+
+<p>下面单独说下这个TEST7属性的处理方式：在第三方sdk当中经常有<meta-data></meta-data>标签形式定义的APP_KEY模式，这个就可以通过android 代码块中的maniPlaceHolder实现。</p>
+
+<p>manifestPlaceHolders可以在androidManifest.xml文件当中读取定义的属性</p>
+
+<p>Manifest文件通过manifestPlaceHolders获取gradle定义的属性
+我想大家已经get到这个TEST7使用的点了，对，没错，它一般用于和AndroidManifest.xml完成变量的交互，它采用非字符串读取方式的处理方式，那是因为在默认加载到AndroidManifest.xml中的这个变量会被处理为字符串格式，也可以简单理解，系统内部已经做了字符串的添加操作，这时候再来一次的话，就会导致清单文件的这个变量读取成带字符串的值，这会导致第三方SDK或其它情况的错误。（请注意，有兴趣的同学可以按照字符串方式处理，然后反编译，可以很清楚的在清单配置文件当中看到这个变量的value值。）</p>
+
+<p>demo指向，能用代码说话，就别说废话了–https://github.com/kaycool/EnvironmentConfigDemo</p>
+
+            </article>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container">
+		<p class="copyright">Copyright &copy; 2014-2018 <a href="http://www.hifreud.com/Resume.io/"><code>kai.wang</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a>, refactored by <a href="http://www.hifreud.com/">Freud Kang</a></p>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/lessismore.js"></script>
+<script src="/styles/js/application.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  </body>
+</html>
