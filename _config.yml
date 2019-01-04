@@ -1,7 +1,7 @@
 markdown: rdiscount
 highlighter: pygments
 permalink: /:year/:month/:day/:title.html
-name: "us&#39;"
+name: "做一条快乐的小咸鱼，任风吹雨打，反正内外已经干透了😀"
 markdown: rdiscount
 rdiscount:
     extensions:
