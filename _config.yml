@@ -1,25 +1,43 @@
-# Site settings
-name:  汪凯的博客
-email: wk343321@126.com
-author: kai.wang
-url: http://www.hifreud.com
-resume_site: http://www.hifreud.com/Resume.io/
-github: https://github.com/kaycool
-github_username: kai.w
-baseurl: ""
-description: 一个有着梦想的咸鱼，企图晒着太阳翻着肚皮的咸鱼！
-meta_description: 勿忘初心
-motto: It's our wits that make us men.
-banner: 学而不思则罔，思而不学则殆。
+markdown: rdiscount
+highlighter: pygments
+permalink: /:year/:month/:day/:title.html
+name: "us&#39;"
+markdown: rdiscount
+rdiscount:
+    extensions:
+      - generate_toc
+      - footnotes
+      - smart 
+    toc_token: "@TOC"
 
-#permalink: /:categories/:year/:month/:day/:title/
-permalink: /:year/:month/:day/:title/
-paginate: 10
+author: "wangkai"
+atom-baseurl: "https://kaycool.github.io/"
+disqus: "gopherwood"
 
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
+excerpt_separator: "<!--more-->"
 
-# Build settings
-markdown: kramdown
 
-baidu_analysis: 94be4b0f9fc5d94cc0d0415ea6761ae9
 
+navigations:
+  - title: Archive
+    class: fa fa-list-ul
+    href: /jekyll-blog-template/archive.html
+  - title: Tags
+    class: fa fa-tags
+    href: /jekyll-blog-template/tags.html
+  - title: About
+    class: fa fa-user
+    href: /jekyll-blog-template/about.html
+  - title: Subscribe
+    class: fa fa-rss
+    href: /jekyll-blog-template/atom.xml
+
+#social
+qq: "http://wpa.qq.com/msgrd?v=3&uin=1316017265&site=qq&menu=yes"
+weibo: ""
+wechat: "wk15156276550"
+linkedin: "https://www.linkedin.com/in/%E5%87%AF-%E6%B1%AA-1082a8116/"
+github: "https://github.com/Zuofan"
+
+
+siteurl: "https://zuofan.github.io/jekyll-blog-template/"
