@@ -12,8 +12,6 @@ tags:
 
 官方原文链接地址
 
-本文只是个人为了整理Lint相关知识，依据谷歌翻译整理而成，水平确实不堪，很多地方自己都读不太懂，见谅...
-
 2014.3.14更新，根据最新版本的lint中添加的新功能，添加了用于java解析的类型解析部分。
 
 本文档简要介绍了编写lint检查，这绝对不是一个完整的教程，但希望在API之上添加一些有用的评论和提示（你可能还需要查看“Writing Custom Lint Rules”文档以获得更多的详细信息和提示）
@@ -161,100 +159,4 @@ lintProject 调用中引用的测试数据文件与sdk/lint/libs/lint_checks/tes
 
 为什么我的检测器不工作
 确保你已经把它添加到 BuiltinRegistry类中！同时确保你的检测器有一个公共默认构造函数（使其可以被实例化），并且它具备正确的范围。
-             transform: rotate(90deg);
-        }
-        
-        //javascript-code
-        <script src="/media/js/jquery.js" type="text/javascript"></script>
-        <script src="/media/js/bootstrap.js" type="text/javascript"></script>
-        <script type="text/javascript">
-          $('.cross-rotate').on('click', function(){
-            $(this).toggleClass('active');
-        });
-
-### 文章列表
-文章列表主要在3个地方应用CSS规则，如下图所示：
-![css-simple-index-content]({{ site.siteurl }}/media/files/2017/css-simple-index-content.png)
-
-下面我们看一下具体的CSS规则，主要分为article-header、article-body、article-footer。
-
-        article   *, .article *,#tag_cloud {
-         font-family: "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-        }
-        
-        //article-header
-        .article .article-header {
-            text-align:center;
-            margin:.6em 0 1em;
-            font-size: 1.5em;
-        }
-        .article .article-header .header-title {
-              margin: .15em 0 .25em;
-          }
-          .article .article-header .header-category a,
-          .article .article-header .header-dateline {
-            color: rgba(31,31,31,.5);font-family: "futura-pt";
-          }
-        
-        
-        //article-body
-        .article  .article-body,
-        .article  .article-summary{
-            font: 300 1.5em/1.8 "futura-pt", "proxima-nova","Helvetica Neue",Helvetica,Arial,sans-serif;
-          }
-        .article  .article-body img {
-            display:block;
-        }
-        
-        //article-footer
-        .article > .article-footer  {
-          margin: 1em 0 2em;
-        }
-         .article > .article-footer a {
-            color: rgba(31,31,31, .5);
-            text-decoration: none;
-            font-size: 1.5em;
-            line-height: 1.8em;
-          }
-        .article > .article-footer a:before {
-            content: "Read More";
-        }
-         .article > .article-footer a:after {
-            content: " \279D";
-            font: normal .9em sans-serif;
-            color:rgba(31, 31, 31, .45);
-        }
-
-## Blog的文章页面样式
-
-用的就是主界面的文章样式。
-
-## Archive列表样式
-
-        ul.listing { margin-top: 1em; }
-        ul.listing li {
-            font-size: 1.4em;
-            list-style-type: none;
-            padding: 0; 
-        }
-        
-        ul.listing li.listing-item a, 
-        ul.listing li.listing-item header #header h1 a, 
-        header #header h1 ul.listing li.listing-item a {
-              padding: .2em 0 .2em 2em; 
-        }
-        
-        ul.listing li.listing-item time {
-              color: #999; 
-        }
-        ul.listing li.listing-item:hover {
-              background-color: #f9f9f9; 
-        }
-        ul.listing li.listing-seperator {
-              font-family: telexregular, Hiragino Sans GB, Microsoft YaHei, sans-serif; 
-        }
-        ul.listing li.listing-seperator:before {
-                content: "⭠ ";
-                color: #ccc; 
-        }
-
+           
